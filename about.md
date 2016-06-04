@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-I'm a software developer from Dublin working at (Clinch)[https://clinch.io].
+I'm a software developer from Dublin working at [Clinch](https://clinch.io).
 
 ### More Information
 
