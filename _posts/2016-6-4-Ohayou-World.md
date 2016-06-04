@@ -1,6 +1,6 @@
 ---
 layout: post
-title:　おはよう world.
+title: おはようworld!
 ---
 
 Tech things I learn go here.

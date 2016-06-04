@@ -1,6 +1,6 @@
 ---
 layout: post
-title:　Passing Parameters From Rails Routes to Controller Actions
+title: Passing Parameters From Rails Routes to Controller Actions
 ---
 
 Say you have an index action renders a collection of posts. Your posts also have different kinds that have special conditions to render as a collection and you've created scopes to handle this.
