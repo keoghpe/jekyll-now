@@ -60,3 +60,4 @@ we can set up additional routes which will provide cleaner URLs.
 get 'posts/development' => 'posts#index', post_kind: 'development'
 get 'posts/climbing' => 'posts#index', post_kind: 'climbing'
 ```
+
