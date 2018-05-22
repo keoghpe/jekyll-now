@@ -13,12 +13,14 @@ This has two major downsides:
 
 - The spec becomes harder to read and maintain as the number of rows and columns you are interested in testing grows.
 - When the test fails, the output RSpec gives you can be hard to read or even useless. Often it can look like the following:
+
 ```
 expected: ["elements", "at", "the", "start" "..., "elements", "at", "the", "end"]
      got: ["elements", "at", "the", "start" "..., "elements", "at", "the", "end"]
 
 (compared using ==)
 ```
+
 This isn't helpful when the difference is somewhere in the middle of the row!
 
 Recently, I've created a helper which looks like this:
@@ -44,7 +46,6 @@ module ReportsSpecHelper
   end
 end
 ```
-
 
 I use this to compare the CSV under test with a CSV I have stored in the same directory as the spec.
 It iterates every row and column in the CSV and performs a comparison. 
