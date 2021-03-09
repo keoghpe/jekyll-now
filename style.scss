@@ -147,15 +147,17 @@ img {
 // .masthead
 //
 
+$spacing: 20px;
+
 body {
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0,4fr);
   grid-template-rows: auto;
+  column-gap: $spacing;
 }
 
 header {
-  padding: 20px 0;
-  border-right: 1px solid $highlightColor;
+  padding: $spacing;
 
   @include mobile {
     text-align: center;
@@ -186,6 +188,10 @@ header {
 // .main
 //
 
+#main {
+  border-left: 1px solid $highlightColor;
+}
+
 .posts > .post {
   padding-bottom: 2em;
   border-bottom: 1px solid $highlightColor;
@@ -197,6 +203,8 @@ header {
 }
 
 .post {
+  padding: $spacing;
+
   blockquote {
     margin: 1.8em .8em;
     border-left: 2px solid $headingFontColor;
@@ -224,7 +232,7 @@ header {
 }
 
 footer {
-  padding: 20px 0;
+  padding: $spacing 0;
   text-align: center;
 }
 
