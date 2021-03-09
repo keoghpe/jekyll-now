@@ -18,9 +18,9 @@ html {
 }
 
 body {
-	background: $white;
-  font: 18px/1.4 $helvetica;
-  color: $darkGray;
+  background: $backgroundColor;
+  font: 18px/1.4 $bodyFont;
+  color: $bodyFontColor;
 }
 
 .container {
@@ -31,8 +31,8 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $helveticaNeue;
-  color: $darkerGray;
+  font-family: $headingFont;
+  color: $headingFontColor;
   font-weight: bold;
 
   line-height: 1.7;
@@ -46,6 +46,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 30px;
+
   a {
     color: inherit;
   }
@@ -61,7 +62,7 @@ h3 {
 
 h4 {
   font-size: 18px;
-  color: $gray;
+  color: $bodyFontColor;
 }
 
 p {
@@ -69,11 +70,12 @@ p {
 }
 
 a {
-  color: $blue;
+  color: $highlightColor;
   text-decoration: none;
-	cursor: pointer;
+  cursor: pointer;
+
   &:hover, &:active {
-    color: $blue;
+    color: $highlightColor;
   }
 }
 
@@ -117,29 +119,30 @@ img {
 
 .date {
   font-style: italic;
-  color: $gray;
+  color: $bodyFontColor;
 }
 
 // Specify the color of the selection
 ::-moz-selection {
-  color: $black;
-  background: $lightGray;
+  color: $backgroundColor;
+  background: $highlightColor;
 }
+
 ::selection {
-  color: $black;
-  background: $lightGray;
+  color: $backgroundColor;
+  background: $highlightColor;
 }
 
 // Nicolas Gallagher's micro clearfix hack
 // http://nicolasgallagher.com/micro-clearfix-hack/
 .clearfix:before,
 .clearfix:after {
-    content: " ";
-    display: table;
+  content: " ";
+  display: table;
 }
 
 .clearfix:after {
-    clear: both;
+  clear: both;
 }
 
 /*********************/
@@ -156,7 +159,7 @@ img {
 
 .masthead {
   padding: 20px 0;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 1px solid $highlightColor;
 
   @include mobile {
     text-align: center;
@@ -192,9 +195,9 @@ img {
 
 .site-name {
   margin: 0;
-  color: $darkGray;
+  color: $headingFontColor;
   cursor: pointer;
-  font-family: $helveticaNeue;
+  font-family: $headingFont;
   font-weight: 300;
   font-size: 28px;
   letter-spacing: 1px;
@@ -202,7 +205,7 @@ img {
 
 .site-description {
   margin: -5px 0 0 0;
-  color: $gray;
+  color: $bodyFontColor;
   font-size: 16px;
 
   @include mobile {
@@ -213,7 +216,7 @@ img {
 nav {
   float: right;
   margin-top: 23px; // @TODO: Vertically middle align
-  font-family: $helveticaNeue;
+  font-family: $headingFont;
   font-size: 18px;
 
   @include mobile {
@@ -225,14 +228,14 @@ nav {
 
   a {
     margin-left: 20px;
-    color: $darkGray;
+    color: $headingFontColor;
     text-align: right;
     font-weight: 300;
     letter-spacing: 1px;
 
     @include mobile {
       margin: 0 10px;
-      color: $blue;
+      color: $highlightColor;
     }
   }
 }
@@ -243,7 +246,7 @@ nav {
 
 .posts > .post {
   padding-bottom: 2em;
-  border-bottom: 1px solid $lightGray;
+  border-bottom: 1px solid $highlightColor;
 }
 
 .posts > .post:last-child {
@@ -254,9 +257,9 @@ nav {
 .post {
   blockquote {
     margin: 1.8em .8em;
-    border-left: 2px solid $gray;
+    border-left: 2px solid $headingFontColor;
     padding: 0.1em 1em;
-    color: $gray;
+    color: $headingFontColor;
     font-size: 22px;
     font-style: italic;
   }
@@ -275,7 +278,7 @@ nav {
   margin-top: 50px;
   border-top: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
-  background-color: $lightGray;
+  background-color: $bodyFontColor;
 }
 
 footer {

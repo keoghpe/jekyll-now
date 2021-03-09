@@ -7,17 +7,16 @@
 $blue: #4183C4;
 
 // Grays
-$black: #000;
-$darkerGray: #222;
-$darkGray: #333;
-$gray: #666;
-$lightGray: #eee;
-$white: #fff;
+
+$backgroundColor: #1C1E2C;
+$highlightColor: #87f7dd;
+$bodyFontColor: rgb(145, 147, 167);
+$headingFontColor: #fff;
 
 // Font stacks
-$helvetica: Helvetica, Arial, sans-serif;
-$helveticaNeue: "Helvetica Neue", Helvetica, Arial, sans-serif;
-$georgia: Georgia, serif;
+$bodyFont: Monaco;
+//$headingFont: "Helvetica Neue", Helvetica, Arial, sans-serif;
+$headingFont: "Hoefler Text";
 
 // Mobile breakpoints
 @mixin mobile {
