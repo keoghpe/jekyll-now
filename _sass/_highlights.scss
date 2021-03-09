@@ -1,11 +1,11 @@
 
-$dark_grey: #586E75;
-$regular: #93A1A1;
-$string: #2AA198;
-$method: #268BD2;
-$keyword: #859900;
-$constant: #CB4B16;
-$regex: #DC322F;
+$comments: $bodyFontColor;
+$regular: $headingFontColor;
+$method: $highlightColor2;
+$string: $highlightColor;
+$keyword: $highlightColor3;
+$constant: $highlightColor4;
+$regex: $highlightColor4;
 
 .highlight {
   background-color: lighten($backgroundColor, 10%);
@@ -22,7 +22,8 @@ code {
   font-family:'Bitstream Vera Sans Mono','Courier', monospace;
 }
 
-.highlight .c { color: $dark_grey } /* Comment */
+.highlight .c { color: $comments
+} /* Comment */
 .highlight .err { color: $regular
 } /* Error */
 .highlight .g { color: $regular
@@ -39,10 +40,12 @@ code {
 } /* Other */
 .highlight .p { color: $regular
 } /* Punctuation */
-.highlight .cm { color: $dark_grey } /* Comment.Multiline */
+.highlight .cm { color: $comments
+} /* Comment.Multiline */
 .highlight .cp { color: $keyword
 } /* Comment.Preproc */
-.highlight .c1 { color: $dark_grey } /* Comment.Single */
+.highlight .c1 { color: $comments
+} /* Comment.Single */
 .highlight .cs { color: $keyword
 } /* Comment.Special */
 .highlight .gd { color: $string
@@ -98,7 +101,8 @@ code {
 } /* Name.Label */
 .highlight .nn { color: $regular
 } /* Name.Namespace */
-.highlight .nx { color: $dark_grey } /* Name.Other */
+.highlight .nx { color: $comments
+} /* Name.Other */
 .highlight .py { color: $regular
 } /* Name.Property */
 .highlight .nt { color: $method
@@ -117,7 +121,8 @@ code {
 } /* Literal.Number.Integer */
 .highlight .mo { color: $string
 } /* Literal.Number.Oct */
-.highlight .sb { color: $dark_grey } /* Literal.String.Backtick */
+.highlight .sb { color: $comments
+} /* Literal.String.Backtick */
 .highlight .sc { color: $string
 } /* Literal.String.Char */
 .highlight .sd { color: $regular

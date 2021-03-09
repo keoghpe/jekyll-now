@@ -9,7 +9,7 @@ One missing piece of the puzzle which doesn't come out of the box is testing Rai
 
 ActionMailer::Previews are only mounted in your development environment by default. We need to mount them in the test environment in order to take screenshots with Percy:
 
-```
+```ruby
   config.action_mailer.show_previews = true
   # the path to the directory of your ActionMailer::Previews
   config.action_mailer.preview_path = Rails.root.join("spec/mailers/previews")
@@ -17,7 +17,7 @@ ActionMailer::Previews are only mounted in your development environment by defau
 
 Percy doesn't load iframes by default and mailer previews run inside an iframe so we need to change the default Percy settings in `rails_helper.rb`:
 
-```
+```ruby
 config.before(:suite) do
   Percy::Capybara.use_loader(::Percy::Capybara::Loaders::SprocketsLoader, include_iframes: true)
   Percy::Capybara.initialize_build
@@ -26,31 +26,33 @@ end
 
 Lastly, we can write an integration spec that uses meta programming to iterate over all of our mailers:
 
-```
+```ruby
 require 'spec_helper'
- describe 'Mail Preview' do
-   it 'previews all the mails', js: true do
-     # set up any data required for the mailer previews
-     create(:user)
- 
-     # The action mailer preview classes don't load unless we visit a mailer url to begin with
-     visit '/rails/mailers/'
 
-     ActionMailer::Preview.subclasses.each do |preview_class|
-       # build the urls for the previews
-       (preview_class.instance_methods - Object.methods).each do |method|
-         slug = "#{preview_class.name.underscore.gsub('_preview', '')}/#{method}"
-         begin
-           visit "/rails/mailers/#{slug}"
-           within_frame(find('[name="messageBody"]')) do
-             expect(page).to have_selector('table.body')
-             Percy::Capybara.snapshot(page, name: slug)
-           end
-         rescue AbstractController::ActionNotFound
-           puts "Couldnt visit #{slug}"
-         end
-       end
-     end
-   end
- end
+describe 'Mail Preview' do
+  it 'previews all the mails', js: true do
+    # set up any data required for the mailer previews
+    create(:user)
+
+    # The action mailer preview classes don't load unless we visit a mailer url to begin with
+    visit '/rails/mailers/'
+
+    ActionMailer::Preview.subclasses.each do |preview_class|
+      # build the urls for the previews
+      (preview_class.instance_methods - Object.methods).each do |method|
+        slug = "#{preview_class.name.underscore.gsub('_preview', '')}/#{method}"
+        begin
+          visit "/rails/mailers/#{slug}"
+          within_frame(find('[name="messageBody"]')) do
+            expect(page).to have_selector('table.body')
+            Percy::Capybara.snapshot(page, name: slug)
+          end
+        rescue AbstractController::ActionNotFound
+          puts "Couldnt visit #{slug}"
+        end
+      end
+    end
+  end
+end
+
 ```
