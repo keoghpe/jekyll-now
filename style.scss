@@ -192,14 +192,46 @@ header {
   border-left: 1px solid $highlightColor;
 }
 
+.posts {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
 .posts > .post {
   padding-bottom: 2em;
-  border-bottom: 1px solid $highlightColor;
+  grid-column: span 2;
+  border-bottom: 1px dashed $highlightColor;
+  border-right: 1px dashed $highlightColor;
+}
+
+.posts > .post:first-child {
+  border: none;
+  grid-column: span 6;
+  border-bottom: 1px dashed $highlightColor;
+  text-align: center;
+  font-size: 1.5em;
+
+  h1 {
+    font-size: 3.5em;
+    margin-top: $spacing;
+  }
+
+  .read-more {
+    font-size: 1.3em;
+  }
+}
+
+.posts > .post:nth-child(2),
+.posts > .post:nth-child(3) {
+  grid-column: span 3;
+
+  h1 {
+    font-size: 2.5em;
+  }
 }
 
 .posts > .post:last-child {
   padding-bottom: 1em;
-  border-bottom: none;
 }
 
 .post {

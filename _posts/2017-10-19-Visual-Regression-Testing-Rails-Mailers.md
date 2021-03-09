@@ -1,10 +1,13 @@
 ---
 layout: post
-title: Visual Regression Testing Rails Mailers with Percy.io
+title: Visual Regression Testing Rails Mailers
 ---
 
-Recently in work we've started using [Percy.io](https://percy.io/) to catch visual regressions in our UI. It's a great tool - it allows us to catch regressions in CSS or HTML that we would have only caught previously with manual testing. The service costs us $100 a month for 3 developers - compare that to the salary of a dedicated QA and it's a no brainer.
+Recently in work we've started using [Percy.io](https://percy.io/) to catch visual regressions in our UI.
+It's a great tool - it allows us to catch regressions in CSS or HTML that we would have only caught previously with manual testing.
+  
 
+The service costs us $100 a month for 3 developers - compare that to the salary of a dedicated QA and it's a no brainer.
 One missing piece of the puzzle which doesn't come out of the box is testing Rails mailers. We have quite a few HTML emails that we send out which are prone to the same visual regression problems that our  UI is. The set up is relatively easy using [action mailer previews](http://guides.rubyonrails.org/4_1_release_notes.html#action-mailer-previews).
 
 ActionMailer::Previews are only mounted in your development environment by default. We need to mount them in the test environment in order to take screenshots with Percy:

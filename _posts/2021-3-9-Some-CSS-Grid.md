@@ -81,11 +81,47 @@ body {
 
 I've pretty much gotten a layout I'm happy with, so I'm going to commit and deploy what I have.
 
-Now that I've deployed, I'm going to play around with subgrids for the posts layout.
+
+Now that I've deployed, I'm going to play around with another grid for the posts layout.
+
+I can try a layout of 3 posts per row:
+
+```css
+.posts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+```
+
+Even better, I can define a grid that's 6 columns wide. Then I can define the first post to be full width, the
+second and third posts to be half width and the remaining posts to be a third each:
+
+```css
+.posts {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.posts > .post {
+  grid-column: span 2;
+}
+
+.posts > .post:first-child {
+  grid-column: span 6;
+}
+
+.posts > .post:nth-child(2) {
+  grid-column: span 3;
+}
+
+.posts > .post:nth-child(3) {
+  grid-column: span 3;
+}
+```
+
 
 
 
 To do:
-- play around with `repeat(3, 1fr)`
 - what about mobile? Reordering?
 
